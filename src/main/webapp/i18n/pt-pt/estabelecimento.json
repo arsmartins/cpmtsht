@@ -1,0 +1,24 @@
+{
+    "cpmtshtApp": {
+        "estabelecimento": {
+            "home": {
+                "title": "Estabelecimentos",
+                "createLabel": "Criar um(a) novo(a) Estabelecimento",
+                "createOrEditLabel": "Criar ou editar um(a) Estabelecimento"
+            },
+            "created": "A new Estabelecimento is created with identifier {{ param }}",
+            "updated": "A Estabelecimento is updated with identifier {{ param }}",
+            "deleted": "A Estabelecimento is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Estabelecimento {{ id }}?"
+            },
+            "detail": {
+                "title": "Estabelecimento"
+            },
+            "designacao": "Designacao",
+            "localizacao": "Localizacao",
+            "funcionario": "Funcionario",
+            "empresa": "Empresa"
+        }
+    }
+}

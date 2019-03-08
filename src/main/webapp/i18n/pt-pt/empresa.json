@@ -1,0 +1,25 @@
+{
+    "cpmtshtApp": {
+        "empresa": {
+            "home": {
+                "title": "Empresas",
+                "createLabel": "Criar um(a) novo(a) Empresa",
+                "createOrEditLabel": "Criar ou editar um(a) Empresa"
+            },
+            "created": "A new Empresa is created with identifier {{ param }}",
+            "updated": "A Empresa is updated with identifier {{ param }}",
+            "deleted": "A Empresa is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Empresa {{ id }}?"
+            },
+            "detail": {
+                "title": "Empresa"
+            },
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "language": "Language",
+            "estabelecimentos": "Estabelecimentos",
+            "funcionarios": "Funcionarios"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "name": "Risco",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "tipoRisco",
+            "otherEntityRelationshipName": "risco",
+            "relationshipName": "tipo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "postoTrabalho",
+            "otherEntityName": "postoTrabalho",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190308184807",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "risco",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

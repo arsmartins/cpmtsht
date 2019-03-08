@@ -1,0 +1,109 @@
+// an ignored comment
+/** not an ignored comment */
+entity Localizacao {
+	streetAddress String,
+	postalCode String,
+	city String,
+	district String,
+    country String
+}
+
+entity Coordenadas {
+	latitude Float,
+    longitude Float
+}
+
+entity Estabelecimento {
+	designacao String required
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Risco {
+	title String,
+	description String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Funcionario {
+	/**
+	* The firstname attribute.
+	*/
+    fullName String,
+	firstName String,
+	lastName String,
+	email String,
+	telefone String,
+    numCC String,
+    numIF String,
+    numSS String,
+	dataEntrada Instant,
+    dataSaida Instant
+}
+
+entity PostoTrabalho {
+	designacao String,
+    dataInicio Instant,
+	dataFim Instant,
+}
+
+entity Empresa {
+	startDate Instant,
+	endDate Instant,
+	language Language
+}
+
+entity TipoRisco {
+	designacao String,
+}
+
+enum Language {
+    PORTUGUESE, FRENCH, ENGLISH, SPANISH
+}
+
+relationship OneToOne {
+	Localizacao{coordenadas} to Coordenadas
+}
+
+relationship OneToOne {
+	Estabelecimento{localizacao} to Localizacao
+}
+
+relationship OneToOne {
+	Risco{tipo} to TipoRisco
+}
+
+relationship OneToMany {
+	PostoTrabalho{risco} to Risco
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Funcionario{postoTrabalho} to PostoTrabalho,
+	/**
+	* A relationship
+	*/
+	Estabelecimento{funcionario} to	Funcionario
+}
+
+relationship OneToMany {
+	Empresa{estabelecimentos} to Estabelecimento,
+	Empresa{funcionarios} to Funcionario
+}
+
+// Set pagination options
+paginate Empresa, Funcionario with infinite-scroll
+paginate PostoTrabalho with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Funcionario, PostoTrabalho
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

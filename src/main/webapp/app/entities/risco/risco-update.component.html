@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-risco-heading" jhiTranslate="cpmtshtApp.risco.home.createOrEditLabel">Create or edit a Risco</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!risco.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="risco.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.risco.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="risco.title" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.risco.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="risco.description" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.risco.tipo" for="field_tipo">Tipo</label>
+                    <select class="form-control" id="field_tipo" name="tipo" [(ngModel)]="risco.tipo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoRiscoOption.id === risco.tipo?.id ? risco.tipo : tipoRiscoOption" *ngFor="let tipoRiscoOption of tipos; trackBy: trackTipoRiscoById">{{tipoRiscoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.risco.postoTrabalho" for="field_postoTrabalho">Posto Trabalho</label>
+                    <select class="form-control" id="field_postoTrabalho" name="postoTrabalho" [(ngModel)]="risco.postoTrabalho" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="postoTrabalhoOption.id === risco.postoTrabalho?.id ? risco.postoTrabalho : postoTrabalhoOption" *ngFor="let postoTrabalhoOption of postotrabalhos; trackBy: trackPostoTrabalhoById">{{postoTrabalhoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

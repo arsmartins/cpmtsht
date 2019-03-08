@@ -1,0 +1,40 @@
+{
+    "name": "PostoTrabalho",
+    "fields": [
+        {
+            "fieldName": "designacao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataInicio",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dataFim",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "funcionario",
+            "otherEntityName": "funcionario",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "risco",
+            "otherEntityRelationshipName": "postoTrabalho",
+            "relationshipName": "risco"
+        }
+    ],
+    "changelogDate": "20190308184809",
+    "entityTableName": "posto_trabalho",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

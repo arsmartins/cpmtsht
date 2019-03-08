@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="risco">
+            <h2><span jhiTranslate="cpmtshtApp.risco.detail.title">Risco</span> {{risco.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cpmtshtApp.risco.title">Title</span></dt>
+                <dd>
+                    <span>{{risco.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.risco.description">Description</span></dt>
+                <dd>
+                    <span>{{risco.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.risco.tipo">Tipo</span></dt>
+                <dd>
+                    <div *ngIf="risco.tipo">
+                        <a [routerLink]="['/tipo-risco', risco.tipo?.id, 'view']">{{risco.tipo?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.risco.postoTrabalho">Posto Trabalho</span></dt>
+                <dd>
+                    <div *ngIf="risco.postoTrabalho">
+                        <a [routerLink]="['/posto-trabalho', risco.postoTrabalho?.id, 'view']">{{risco.postoTrabalho?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/risco', risco.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

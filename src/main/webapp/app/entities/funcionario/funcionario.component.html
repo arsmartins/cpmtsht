@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="cpmtshtApp.funcionario.home.title">Funcionarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-funcionario" [routerLink]="['/funcionario/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="cpmtshtApp.funcionario.home.createLabel">
+            Create new Funcionario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="funcionarios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fullName"><span jhiTranslate="cpmtshtApp.funcionario.fullName">Full Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="cpmtshtApp.funcionario.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="cpmtshtApp.funcionario.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="cpmtshtApp.funcionario.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefone"><span jhiTranslate="cpmtshtApp.funcionario.telefone">Telefone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numCC"><span jhiTranslate="cpmtshtApp.funcionario.numCC">Num CC</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numIF"><span jhiTranslate="cpmtshtApp.funcionario.numIF">Num IF</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numSS"><span jhiTranslate="cpmtshtApp.funcionario.numSS">Num SS</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataEntrada"><span jhiTranslate="cpmtshtApp.funcionario.dataEntrada">Data Entrada</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataSaida"><span jhiTranslate="cpmtshtApp.funcionario.dataSaida">Data Saida</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estabelecimento.id"><span jhiTranslate="cpmtshtApp.funcionario.estabelecimento">Estabelecimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="empresa.id"><span jhiTranslate="cpmtshtApp.funcionario.empresa">Empresa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let funcionario of funcionarios ;trackBy: trackId">
+                <td><a [routerLink]="['/funcionario', funcionario.id, 'view' ]">{{funcionario.id}}</a></td>
+                <td>{{funcionario.fullName}}</td>
+                <td>{{funcionario.firstName}}</td>
+                <td>{{funcionario.lastName}}</td>
+                <td>{{funcionario.email}}</td>
+                <td>{{funcionario.telefone}}</td>
+                <td>{{funcionario.numCC}}</td>
+                <td>{{funcionario.numIF}}</td>
+                <td>{{funcionario.numSS}}</td>
+                <td>{{funcionario.dataEntrada | date:'medium'}}</td>
+                <td>{{funcionario.dataSaida | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="funcionario.estabelecimento">
+                        <a [routerLink]="['../estabelecimento', funcionario.estabelecimento?.id, 'view' ]" >{{funcionario.estabelecimento?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="funcionario.empresa">
+                        <a [routerLink]="['../empresa', funcionario.empresa?.id, 'view' ]" >{{funcionario.empresa?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/funcionario', funcionario.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/funcionario', funcionario.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'funcionario', { outlets: { popup: funcionario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

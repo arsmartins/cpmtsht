@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="empresa">
+            <h2><span jhiTranslate="cpmtshtApp.empresa.detail.title">Empresa</span> {{empresa.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cpmtshtApp.empresa.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{empresa.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.empresa.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{empresa.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.empresa.language">Language</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'cpmtshtApp.Language.' + empresa.language}}">{{empresa.language}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empresa', empresa.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
