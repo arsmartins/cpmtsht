@@ -8,6 +8,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
+                "localizacao": "Localizacao",
+                "coordenadas": "Coordenadas",
+                "estabelecimento": "Estabelecimento",
+                "risco": "Risco",
+                "funcionario": "Funcionario",
+                "postoTrabalho": "Posto Trabalho",
+                "empresa": "Empresa",
+                "tipoRisco": "Tipo Risco",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

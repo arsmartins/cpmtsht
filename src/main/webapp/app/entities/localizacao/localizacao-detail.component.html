@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="localizacao">
+            <h2><span jhiTranslate="cpmtshtApp.localizacao.detail.title">Localizacao</span> {{localizacao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cpmtshtApp.localizacao.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{localizacao.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.localizacao.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{localizacao.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.localizacao.city">City</span></dt>
+                <dd>
+                    <span>{{localizacao.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.localizacao.district">District</span></dt>
+                <dd>
+                    <span>{{localizacao.district}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.localizacao.country">Country</span></dt>
+                <dd>
+                    <span>{{localizacao.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.localizacao.coordenadas">Coordenadas</span></dt>
+                <dd>
+                    <div *ngIf="localizacao.coordenadas">
+                        <a [routerLink]="['/coordenadas', localizacao.coordenadas?.id, 'view']">{{localizacao.coordenadas?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/localizacao', localizacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

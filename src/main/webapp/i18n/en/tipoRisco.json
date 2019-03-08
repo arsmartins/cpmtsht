@@ -1,0 +1,21 @@
+{
+    "cpmtshtApp": {
+        "tipoRisco": {
+            "home": {
+                "title": "Tipo Riscos",
+                "createLabel": "Create a new Tipo Risco",
+                "createOrEditLabel": "Create or edit a Tipo Risco"
+            },
+            "created": "A new Tipo Risco is created with identifier {{ param }}",
+            "updated": "A Tipo Risco is updated with identifier {{ param }}",
+            "deleted": "A Tipo Risco is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Risco {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Risco"
+            },
+            "designacao": "Designacao"
+        }
+    }
+}

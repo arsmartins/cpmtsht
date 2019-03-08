@@ -40,6 +40,19 @@ public class CacheConfiguration {
             cm.createCache(pt.cpmt.sht.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(pt.cpmt.sht.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(pt.cpmt.sht.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Localizacao.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Coordenadas.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Estabelecimento.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Estabelecimento.class.getName() + ".funcionarios", jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Risco.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Funcionario.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Funcionario.class.getName() + ".postoTrabalhos", jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.PostoTrabalho.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.PostoTrabalho.class.getName() + ".riscos", jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Empresa.class.getName(), jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Empresa.class.getName() + ".estabelecimentos", jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.Empresa.class.getName() + ".funcionarios", jcacheConfiguration);
+            cm.createCache(pt.cpmt.sht.domain.TipoRisco.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

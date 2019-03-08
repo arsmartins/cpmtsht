@@ -1,0 +1,76 @@
+{
+    "name": "Funcionario",
+    "fields": [
+        {
+            "fieldName": "fullName",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numCC",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numIF",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numSS",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataEntrada",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dataSaida",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "estabelecimento",
+            "otherEntityName": "estabelecimento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "postoTrabalho",
+            "otherEntityRelationshipName": "funcionario",
+            "relationshipName": "postoTrabalho"
+        },
+        {
+            "relationshipName": "empresa",
+            "otherEntityName": "empresa",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190308184808",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "funcionario",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

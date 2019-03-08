@@ -1,0 +1,41 @@
+{
+    "name": "Empresa",
+    "fields": [
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "language",
+            "fieldType": "Language",
+            "fieldValues": "PORTUGUESE,FRENCH,ENGLISH,SPANISH"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "estabelecimento",
+            "otherEntityRelationshipName": "empresa",
+            "relationshipName": "estabelecimentos"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "funcionario",
+            "otherEntityRelationshipName": "empresa",
+            "relationshipName": "funcionarios"
+        }
+    ],
+    "changelogDate": "20190308184810",
+    "entityTableName": "empresa",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

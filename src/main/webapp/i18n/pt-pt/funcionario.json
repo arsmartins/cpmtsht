@@ -1,0 +1,36 @@
+{
+    "cpmtshtApp": {
+        "funcionario": {
+            "home": {
+                "title": "Funcionarios",
+                "createLabel": "Criar um(a) novo(a) Funcionario",
+                "createOrEditLabel": "Criar ou editar um(a) Funcionario"
+            },
+            "created": "A new Funcionario is created with identifier {{ param }}",
+            "updated": "A Funcionario is updated with identifier {{ param }}",
+            "deleted": "A Funcionario is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Funcionario {{ id }}?"
+            },
+            "detail": {
+                "title": "Funcionario"
+            },
+            "fullName": "Full Name",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "telefone": "Telefone",
+            "numCC": "Num CC",
+            "numIF": "Num IF",
+            "numSS": "Num SS",
+            "dataEntrada": "Data Entrada",
+            "dataSaida": "Data Saida",
+            "estabelecimento": "Estabelecimento",
+            "postoTrabalho": "Posto Trabalho",
+            "empresa": "Empresa",
+            "help": {
+                "fullName": "The firstname attribute."
+            }
+        }
+    }
+}

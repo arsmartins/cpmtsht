@@ -1,0 +1,19 @@
+{
+    "name": "TipoRisco",
+    "fields": [
+        {
+            "fieldName": "designacao",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190308184811",
+    "entityTableName": "tipo_risco",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

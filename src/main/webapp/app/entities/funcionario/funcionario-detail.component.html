@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="funcionario">
+            <h2><span jhiTranslate="cpmtshtApp.funcionario.detail.title">Funcionario</span> {{funcionario.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.fullName" [ngbTooltip]="'cpmtshtApp.funcionario.help.fullName' | translate">Full Name</span></dt>
+                <dd>
+                    <span>{{funcionario.fullName}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{funcionario.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{funcionario.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.email">Email</span></dt>
+                <dd>
+                    <span>{{funcionario.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.telefone">Telefone</span></dt>
+                <dd>
+                    <span>{{funcionario.telefone}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.numCC">Num CC</span></dt>
+                <dd>
+                    <span>{{funcionario.numCC}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.numIF">Num IF</span></dt>
+                <dd>
+                    <span>{{funcionario.numIF}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.numSS">Num SS</span></dt>
+                <dd>
+                    <span>{{funcionario.numSS}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.dataEntrada">Data Entrada</span></dt>
+                <dd>
+                    <span>{{funcionario.dataEntrada}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.dataSaida">Data Saida</span></dt>
+                <dd>
+                    <span>{{funcionario.dataSaida}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.estabelecimento">Estabelecimento</span></dt>
+                <dd>
+                    <div *ngIf="funcionario.estabelecimento">
+                        <a [routerLink]="['/estabelecimento', funcionario.estabelecimento?.id, 'view']">{{funcionario.estabelecimento?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.funcionario.empresa">Empresa</span></dt>
+                <dd>
+                    <div *ngIf="funcionario.empresa">
+                        <a [routerLink]="['/empresa', funcionario.empresa?.id, 'view']">{{funcionario.empresa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/funcionario', funcionario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

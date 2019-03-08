@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="coordenadas">
+            <h2><span jhiTranslate="cpmtshtApp.coordenadas.detail.title">Coordenadas</span> {{coordenadas.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cpmtshtApp.coordenadas.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{coordenadas.latitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="cpmtshtApp.coordenadas.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{coordenadas.longitude}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/coordenadas', coordenadas.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

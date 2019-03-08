@@ -1,0 +1,25 @@
+{
+    "cpmtshtApp": {
+        "postoTrabalho": {
+            "home": {
+                "title": "Posto Trabalhos",
+                "createLabel": "Create a new Posto Trabalho",
+                "createOrEditLabel": "Create or edit a Posto Trabalho"
+            },
+            "created": "A new Posto Trabalho is created with identifier {{ param }}",
+            "updated": "A Posto Trabalho is updated with identifier {{ param }}",
+            "deleted": "A Posto Trabalho is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Posto Trabalho {{ id }}?"
+            },
+            "detail": {
+                "title": "Posto Trabalho"
+            },
+            "designacao": "Designacao",
+            "dataInicio": "Data Inicio",
+            "dataFim": "Data Fim",
+            "funcionario": "Funcionario",
+            "risco": "Risco"
+        }
+    }
+}

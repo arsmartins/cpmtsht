@@ -1,0 +1,44 @@
+{
+    "name": "Estabelecimento",
+    "fields": [
+        {
+            "fieldName": "designacao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "localizacao",
+            "otherEntityRelationshipName": "estabelecimento",
+            "relationshipName": "localizacao",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "funcionario",
+            "otherEntityRelationshipName": "estabelecimento",
+            "javadoc": "A relationship",
+            "relationshipName": "funcionario"
+        },
+        {
+            "relationshipName": "empresa",
+            "otherEntityName": "empresa",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190308184806",
+    "entityTableName": "estabelecimento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

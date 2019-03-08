@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="cpmtshtApp.localizacao.home.title">Localizacaos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-localizacao" [routerLink]="['/localizacao/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="cpmtshtApp.localizacao.home.createLabel">
+            Create new Localizacao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="localizacaos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="cpmtshtApp.localizacao.streetAddress">Street Address</span></th>
+            <th><span jhiTranslate="cpmtshtApp.localizacao.postalCode">Postal Code</span></th>
+            <th><span jhiTranslate="cpmtshtApp.localizacao.city">City</span></th>
+            <th><span jhiTranslate="cpmtshtApp.localizacao.district">District</span></th>
+            <th><span jhiTranslate="cpmtshtApp.localizacao.country">Country</span></th>
+            <th><span jhiTranslate="cpmtshtApp.localizacao.coordenadas">Coordenadas</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let localizacao of localizacaos ;trackBy: trackId">
+                <td><a [routerLink]="['/localizacao', localizacao.id, 'view' ]">{{localizacao.id}}</a></td>
+                <td>{{localizacao.streetAddress}}</td>
+                <td>{{localizacao.postalCode}}</td>
+                <td>{{localizacao.city}}</td>
+                <td>{{localizacao.district}}</td>
+                <td>{{localizacao.country}}</td>
+                <td>
+                    <div *ngIf="localizacao.coordenadas">
+                        <a [routerLink]="['../coordenadas', localizacao.coordenadas?.id, 'view' ]" >{{localizacao.coordenadas?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/localizacao', localizacao.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/localizacao', localizacao.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'localizacao', { outlets: { popup: localizacao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

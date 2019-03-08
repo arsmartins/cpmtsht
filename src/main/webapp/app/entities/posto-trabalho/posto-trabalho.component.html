@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="cpmtshtApp.postoTrabalho.home.title">Posto Trabalhos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-posto-trabalho" [routerLink]="['/posto-trabalho/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="cpmtshtApp.postoTrabalho.home.createLabel">
+            Create new Posto Trabalho
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="postoTrabalhos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designacao"><span jhiTranslate="cpmtshtApp.postoTrabalho.designacao">Designacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataInicio"><span jhiTranslate="cpmtshtApp.postoTrabalho.dataInicio">Data Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataFim"><span jhiTranslate="cpmtshtApp.postoTrabalho.dataFim">Data Fim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="funcionario.id"><span jhiTranslate="cpmtshtApp.postoTrabalho.funcionario">Funcionario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let postoTrabalho of postoTrabalhos ;trackBy: trackId">
+                <td><a [routerLink]="['/posto-trabalho', postoTrabalho.id, 'view' ]">{{postoTrabalho.id}}</a></td>
+                <td>{{postoTrabalho.designacao}}</td>
+                <td>{{postoTrabalho.dataInicio | date:'medium'}}</td>
+                <td>{{postoTrabalho.dataFim | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="postoTrabalho.funcionario">
+                        <a [routerLink]="['../funcionario', postoTrabalho.funcionario?.id, 'view' ]" >{{postoTrabalho.funcionario?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/posto-trabalho', postoTrabalho.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/posto-trabalho', postoTrabalho.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'posto-trabalho', { outlets: { popup: postoTrabalho.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="postoTrabalhos && postoTrabalhos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

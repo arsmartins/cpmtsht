@@ -1,0 +1,24 @@
+{
+    "cpmtshtApp": {
+        "risco": {
+            "home": {
+                "title": "Riscos",
+                "createLabel": "Criar um(a) novo(a) Risco",
+                "createOrEditLabel": "Criar ou editar um(a) Risco"
+            },
+            "created": "A new Risco is created with identifier {{ param }}",
+            "updated": "A Risco is updated with identifier {{ param }}",
+            "deleted": "A Risco is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Risco {{ id }}?"
+            },
+            "detail": {
+                "title": "Risco"
+            },
+            "title": "Title",
+            "description": "Description",
+            "tipo": "Tipo",
+            "postoTrabalho": "Posto Trabalho"
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-funcionario-heading" jhiTranslate="cpmtshtApp.funcionario.home.createOrEditLabel">Create or edit a Funcionario</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!funcionario.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="funcionario.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.fullName" for="field_fullName" [ngbTooltip]="'cpmtshtApp.funcionario.help.fullName' | translate">Full Name</label>
+                    <input type="text" class="form-control" name="fullName" id="field_fullName"
+                        [(ngModel)]="funcionario.fullName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="funcionario.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="funcionario.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="funcionario.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.telefone" for="field_telefone">Telefone</label>
+                    <input type="text" class="form-control" name="telefone" id="field_telefone"
+                        [(ngModel)]="funcionario.telefone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.numCC" for="field_numCC">Num CC</label>
+                    <input type="text" class="form-control" name="numCC" id="field_numCC"
+                        [(ngModel)]="funcionario.numCC" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.numIF" for="field_numIF">Num IF</label>
+                    <input type="text" class="form-control" name="numIF" id="field_numIF"
+                        [(ngModel)]="funcionario.numIF" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.numSS" for="field_numSS">Num SS</label>
+                    <input type="text" class="form-control" name="numSS" id="field_numSS"
+                        [(ngModel)]="funcionario.numSS" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.dataEntrada" for="field_dataEntrada">Data Entrada</label>
+                    <div class="d-flex">
+                        <input id="field_dataEntrada" type="datetime-local" class="form-control" name="dataEntrada" [(ngModel)]="dataEntrada" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.dataSaida" for="field_dataSaida">Data Saida</label>
+                    <div class="d-flex">
+                        <input id="field_dataSaida" type="datetime-local" class="form-control" name="dataSaida" [(ngModel)]="dataSaida" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.estabelecimento" for="field_estabelecimento">Estabelecimento</label>
+                    <select class="form-control" id="field_estabelecimento" name="estabelecimento" [(ngModel)]="funcionario.estabelecimento" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="estabelecimentoOption.id === funcionario.estabelecimento?.id ? funcionario.estabelecimento : estabelecimentoOption" *ngFor="let estabelecimentoOption of estabelecimentos; trackBy: trackEstabelecimentoById">{{estabelecimentoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cpmtshtApp.funcionario.empresa" for="field_empresa">Empresa</label>
+                    <select class="form-control" id="field_empresa" name="empresa" [(ngModel)]="funcionario.empresa" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="empresaOption.id === funcionario.empresa?.id ? funcionario.empresa : empresaOption" *ngFor="let empresaOption of empresas; trackBy: trackEmpresaById">{{empresaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

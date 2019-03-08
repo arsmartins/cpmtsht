@@ -1,0 +1,22 @@
+{
+    "cpmtshtApp": {
+        "coordenadas": {
+            "home": {
+                "title": "Coordenadas",
+                "createLabel": "Criar um(a) novo(a) Coordenadas",
+                "createOrEditLabel": "Criar ou editar um(a) Coordenadas"
+            },
+            "created": "A new Coordenadas is created with identifier {{ param }}",
+            "updated": "A Coordenadas is updated with identifier {{ param }}",
+            "deleted": "A Coordenadas is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Coordenadas {{ id }}?"
+            },
+            "detail": {
+                "title": "Coordenadas"
+            },
+            "latitude": "Latitude",
+            "longitude": "Longitude"
+        }
+    }
+}
